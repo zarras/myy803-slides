@@ -1,0 +1,33 @@
+@startuml
+class Route {
+	- int id
+	- Driver driver
+	- Service service
+	- List<Stop> stops
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class Stop {
+	- int id
+	- String name
+	- double longtitude
+	- double latitude
+	- List<TicketControlAgents> agents
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class routes <<Database Table>>{
+	- integer id
+}
+
+class stops <<Database Table>>{
+	- integer id
+	- varchar name
+	- integer route_id
+}
+
+Route "1" o-- "*" Stop
+stops -- routes : "foreign key from stops to routes"
+@enduml

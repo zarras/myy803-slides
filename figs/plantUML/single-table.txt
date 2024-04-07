@@ -1,0 +1,31 @@
+@startuml
+class Employee {
+	- int eid
+	- String name
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class ActiveEmployee {
+	- double salary
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class RetiredEmployee {
+	- double pension
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class employees <<Database Table>>{
+	- integer eid
+	- varchar name
+	- double salary
+	- double pension
+}
+
+Employee <|-- ActiveEmployee
+Employee <|-- RetiredEmployee
+
+@enduml

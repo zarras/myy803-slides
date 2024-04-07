@@ -1,0 +1,36 @@
+@startuml
+
+class RouteModule {
+	+ void saveRoute(int routeId, String name)
+	+ void deleteRoute(int routeId)
+	+ String reportRouteStatus(int routeId) 	
+}
+
+public class StopModule {
+	+ void saveStop(int stopId, String name, 
+			double longtitude, double latitude, int status, int routeId)	
+	+ void deleteStop(int stopId)	
+	+ void setStopStatus(int stopId, int status) 	
+	+ String reportStopStatus(int stopId) 	
+	+ ResultSet findStopsByRouteId(int routeId) throws SQLException 
+}
+
+
+class routes <<Database Table>>{
+	- integer id
+	- varchar name
+}
+
+class stops <<Database Table>>{
+	- integer id
+	- varchar name
+        - double longtitude
+        - double latitude
+        - int status
+}
+
+RouteModule --> StopModule
+
+StopModule  ..> stops
+RouteModule  ..> routes
+@enduml

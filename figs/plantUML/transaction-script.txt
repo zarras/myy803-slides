@@ -1,0 +1,35 @@
+@startuml
+class TransactionScripts {
+	+ void saveStop(int stopId, String name, 
+			double longtitude, double latitude, int status, int routeId)
+	
+	+ void saveRoute(int routeId, String name)
+	
+	+ void deleteStop(int stopId)
+	
+	+ void deleteRoute(int routeId)
+	
+	+ void changeStopStatus(int stopId, int status)
+	
+	+ String reportStopStatus(int stopId)
+	
+	+ String reportRouteStatus(int routeId)
+}
+
+
+class routes <<Database Table>>{
+	- integer id
+	- varchar name
+}
+
+class stops <<Database Table>>{
+	- integer id
+	- varchar name
+        - double longtitude
+        - double latitude
+        - int status
+}
+
+TransactionScripts  ..> stops
+TransactionScripts  ..> routes
+@enduml

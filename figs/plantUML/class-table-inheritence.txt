@@ -1,0 +1,44 @@
+@startuml
+class Employee {
+	- int eid
+	- String name
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class ActiveEmployee {
+	- double salary
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class RetiredEmployee {
+	- double pension
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class employees <<Database Table>>{
+	- integer eid
+	- varchar name
+}
+
+class active_employees <<Database Table>>{
+	- integer eid <<foreign key>>
+	- double salary
+}
+
+
+class retired_employees <<Database Table>>{
+	- integer eid <<foreign key>>
+	- double pension
+}
+
+
+Employee <|-- ActiveEmployee
+Employee <|-- RetiredEmployee
+
+employeee -- active_employees : "foreign key"
+employees -- retired_employees : "foreign key"
+
+@enduml

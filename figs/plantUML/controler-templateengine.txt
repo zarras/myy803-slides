@@ -1,0 +1,32 @@
+@startuml
+
+class EmployeeController {
+
+	+ String listEmployees(Model theModel) 
+	+ String showFormForAdd(Model theModel)
+	+ String showFormForUpdate(int theId,Model theModel)
+	+ String saveEmployee(Employee theEmployee)	
+	+ String deleteEmployee(int theId)
+}
+
+class Employee {
+	- int id;
+	- String firstName;
+	- String lastName;
+	- String email;
+	
+	+ methods .....		
+}
+
+class ThymeLeaf
+
+class list_employees <<html>>
+
+class employee_form <<html>>
+
+EmployeeController "1" --> "*" Employee
+
+EmployeeController ..> ThymeLeaf
+ThymeLeaf ..> list_employees
+ThymeLeaf ..> employee_form
+@enduml

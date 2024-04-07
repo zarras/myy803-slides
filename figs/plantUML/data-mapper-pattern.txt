@@ -1,0 +1,23 @@
+@startuml
+class Route {
+	- int id
+	- String name
+	- Driver driver
+	- Service service
+	- List<Stop> stops
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+interface RouteMapper {
+	+ Route findById(int id)
+	+ List<Route> findByName(String name)
+	+ save(Route route)
+	+ delete(Route route)
+	+ .... more methods
+}
+
+RouteMapper "1" --> "*" Route
+
+
+@enduml

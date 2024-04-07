@@ -1,0 +1,17 @@
+@startuml
+allow_mixing
+collections AuthorizationAndAuthorizationFilters
+class AuthenticationManager 
+class AuthenticationProvider
+class PasswordEncoder
+class UserDetailsService
+class WebBrowser
+database DBMS
+
+WebBrowser --> AuthorizationAndAuthorizationFilters : http request
+AuthorizationAndAuthorizationFilters --> AuthenticationManager
+AuthenticationManager --> AuthenticationProvider
+AuthenticationProvider --> PasswordEncoder
+AuthenticationProvider --> UserDetailsService
+UserDetailsService ..> DBMS
+@enduml

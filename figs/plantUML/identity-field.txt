@@ -1,0 +1,20 @@
+@startuml
+class Stop {
+	- int id
+	- String name
+	- double longtitude
+	- double latitude
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class stops <<Database Table>> {
+	- integer id
+	- varchar name
+	- double longtitude
+	- double latitude
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+@enduml

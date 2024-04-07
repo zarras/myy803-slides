@@ -1,0 +1,25 @@
+@startuml
+class Stop {
+	- int id
+	- String name
+	- double longtitude
+	- double latitude
+	- List<TicketControlAgents> agents
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class TicketControlAgent {
+	- int id
+	- String name
+	+ methods, constructors, getters, setters, etc.....
+
+}
+
+class stops_agents <<Database Table>>{
+	- integer stop_id
+	- integer agent_id
+}
+
+Stop "*" o-- "*" TicketControlAgents
+@enduml

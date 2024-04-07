@@ -1,0 +1,46 @@
+@startuml
+class Stop {
+	- int id
+	- String name
+	- double longtitude
+	- double latitude
+	- List<TicketControlAgents> agents
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class Route {
+	- int id
+	- Driver driver
+	- Service service
+	- List<Stop> stops
+
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class Driver {
+	- int id
+	- String name
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class Service {
+	- int id
+	- String name
+	+ methods, constructors, getters, setters, etc.....
+}
+
+class TicketControlAgents {
+	- int id
+	- String name
+	+ methods, constructors, getters, setters, etc.....
+
+}
+
+Route "*" o-- "1" Service
+Route "1" o-- "1" Driver
+Route "*" *-- "*" Stop
+Stop "*" o-- "*" TicketControlAgent
+
+
+@enduml
