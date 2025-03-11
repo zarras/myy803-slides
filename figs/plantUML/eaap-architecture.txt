@@ -10,6 +10,7 @@ folder domain_model
 
 database DBMS
 
+
 views ..> controllers
 controllers ..> services
 services ..> data_mappers
